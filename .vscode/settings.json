@@ -1,0 +1,5 @@
+{
+    "github-actions.workflows.pinned.workflows": [
+        ".github/workflows/编译.yml"
+    ]
+}
