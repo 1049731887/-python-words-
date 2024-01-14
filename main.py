@@ -291,6 +291,4 @@ for i in turn_n:
     if want:
         turn_n.append(1)
 
-
-
 time.sleep(2)
