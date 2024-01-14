@@ -46,9 +46,17 @@ def study():
     tostudy_Cs = Cs[wordnum : wordnum + 5]
     for i in range(0, 5):
         print("正在学习……\n")
-        print("单词：", tostudy_Es[i])
-        print("释义：", tostudy_Cs[i])
-        input("\n按 Enter 键下一个")
+        try:
+            print("单词：", tostudy_Es[i])
+            print("释义：", tostudy_Cs[i])
+        except IndexError:
+            clear_screen()
+            print("恭喜您学完啦~！！")
+            quit()
+        try:
+            input("\n按 Enter 键下一个")
+        except KeyboardInterrupt:
+            quit()
         clear_screen()
 
 def EcC():
@@ -234,7 +242,10 @@ def let_choose():
     # 定义一个空字符串，用于存储转换后的结果
     output_str = ""
     # 遍历输入字符串中的每个字符
-    char = input("请选择：")
+    try:
+        char = input("请选择：")
+    except KeyboardInterrupt:
+        quit()
     try:
         if char.isalpha():
             output_str += letter_to_number[char.upper()]
@@ -255,13 +266,19 @@ def let_choose():
     # 返回转换后的结果
     return output_str
 
+def quit():
+    print("\n退出系统！")
+    time.sleep(1)
+    exit()
+
 print()
 day = readfile("day.env")
 
 words = readenv()
 words_source = 1
 if int(day) == 0:
-    print("欢迎进入单词背记系统！")
+    print("欢迎进入单词背记系统！！！")
+    print("使用 Ctrl+C 退出系统！")
 else:
     print("------第", int(day), "天------")
 
