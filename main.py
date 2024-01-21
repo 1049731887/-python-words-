@@ -144,7 +144,7 @@ def EcC():
         clear_screen()
 
 def CcE():
-    print("英文选中文\n")
+    print("中文选英文\n")
     day = readfile("day.env")
     wordnum = day * 5
     error_words_n=[]
